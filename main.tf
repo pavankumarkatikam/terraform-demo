@@ -16,7 +16,7 @@ resource "aws_ecr_repository" "app_ecr_repo" {
   }
 
   provisioner "local-exec" {
-    command = "docker build -t myproject ."
+    command = "docker build -t myproject ../"
   }
   provisioner "local-exec" {
     command = "docker tag myproject:latest ${aws_ecr_repository.app_ecr_repo.repository_url}/myproject:latest"
