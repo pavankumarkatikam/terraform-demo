@@ -11,7 +11,9 @@ terraform {
 resource "aws_ecr_repository" "app_ecr_repo" {
   name = "app-repo"
 
-  command = "export REPOSITORY_URL=${aws_ecr_repository.app_ecr_repo.repository_url}"
+  provisioner "local-exec" {
+    command = "export REPOSITORY_URL=${aws_ecr_repository.app_ecr_repo.repository_url}"
+  }
   
 }
 
