@@ -1,5 +1,13 @@
 
 
+terraform {
+  backend "s3" {
+    bucket = "terr-remote-backend"
+    key    = "infra/infrabackend.tfstate"
+    region = "us-east-2"
+  }
+}
+
 
 resource "aws_ecs_cluster" "ecs" {
   name = "app_cluster"
